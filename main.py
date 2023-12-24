@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-df = pd.read_csv('Online_Retail_2.csv', sep=';', parse_dates=['InvoiceDate'], 
+df = pd.read_csv('Online_Retail.csv', sep=';', parse_dates=['InvoiceDate'], 
      dayfirst=True, dtype={'UnitPrice': float, 'CustomerID': str}, decimal=',')
 
 # We select lines in which 'InvoiceNo' begins with 'C'
@@ -134,7 +134,6 @@ plt.title('Distribution of customers by days without purchase')
 for bar in bars:
     yval = bar.get_height()
     plt.text(bar.get_x() + bar.get_width()/2, yval + 0.1, round(yval), ha='center', va='bottom')
-
 plt.show()
 
 segment_customers = last_purchase_date.groupby('DaysSegment')['CustomerID'].agg(list).reset_index()
