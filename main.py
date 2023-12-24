@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-df = pd.read_csv('Online_Retail.csv', sep=';', parse_dates=['InvoiceDate'], 
+df = pd.read_csv('Online Retail.csv', sep=';', parse_dates=['InvoiceDate'], 
      dayfirst=True, dtype={'UnitPrice': float, 'CustomerID': str}, decimal=',')
 
 # We select lines in which 'InvoiceNo' begins with 'C'
