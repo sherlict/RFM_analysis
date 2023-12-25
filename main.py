@@ -147,6 +147,9 @@ sum_per_purchase = df.groupby(['CustomerID', 'InvoiceNo'])['Sum'].sum().reset_in
 # We divide the number of purchases into 10 segments in ascending order
 sum_per_purchase['SumPerPurchase'] = pd.qcut(sum_per_purchase['Sum'], q=10, labels=False, duplicates='drop') + 1
 
+# Calculation of statistics for each segment
+segment_stats = sum_per_purchase.groupby('SumPerPurchase')['Sum'].agg(['max', 'median', 'mean']).reset_index()
+
 # We create a schedule
 plt.figure(figsize=(10, 6))
 plt.bar(segment_stats['SumPerPurchase'], segment_stats['max'], color='skyblue', label='Максимальна сума')
