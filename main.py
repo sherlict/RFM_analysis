@@ -73,15 +73,6 @@ plt.ylabel('Number of buyers')
 plt.title('The number of buyers in each segment')
 plt.show()
 
-# We group data by segments and get unique buyers for each segment
-segment_customers = last_purchase_date.groupby('DaysSegment')['CustomerID'].unique().reset_index()
-
-# We display a list of buyers for each segment
-for index, row in segment_customers.iterrows():
-    segment = row['DaysSegment']
-    customers = row['CustomerID']
-    print(f"Сегмент {segment}: {customers}")
-
 # Age of last purchase (Recency)
 
 # We find for each buyer the last date of his purchase
